@@ -43,7 +43,7 @@ string Data::loadData() {
         inFile.close();
         return ss.str();
     } else {
-        cerr << "Failed to open file orders.txt for reading.\n";
+        cerr << "Failed to  open file orders.txt for reading.\n";
         return "";
     }
 }
