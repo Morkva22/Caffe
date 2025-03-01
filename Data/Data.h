@@ -4,9 +4,9 @@
 #include <.../.../lib/lib.h>
 class Data {
 public:
-    void createFileIfNotExists(const std::string& filename);
-    void saveData(const std::string& data);
-    std::string loadData();
+    void createFileIfNotExists(const string& filename);
+    void saveData(const string& data);
+    string loadData();
     int getLastOrderNumber();
 };
 
