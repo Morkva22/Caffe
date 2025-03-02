@@ -4,10 +4,6 @@
 #include "../../Domain/Clock/Clock.h"
 #include "../../Domain/Guest/Guest.h"
 #include "../../Domain/Order/Queue/Queue.h"
-#include <iostream>
-#include <sstream>
-#include <thread>
-#include <chrono>
 
 using namespace std;
 using namespace std::chrono;
