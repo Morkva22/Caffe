@@ -5,9 +5,6 @@
 #include "../../Domain/Guest/Guest.h"
 #include "../../Domain/Order/Queue/Queue.h"
 
-using namespace std;
-using namespace std::chrono;
-
 UI::UI(Cafe* cafe, Logger* logger) : cafe(cafe), logger(logger) {}
 
 void UI::run() {
