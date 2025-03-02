@@ -49,7 +49,6 @@ void UI::run() {
                         cout << "                                                                              Current Time: " << clock.getCurrentTime() << endl;
                         cout << "|<<<| Thank you, " << guest.getName() << "!" << endl;
 
-                        // Виводимо замовлення
                         cout << "|<<<| Your order:" << endl;
                         MenuItem* orderedItems = order.getItems();
                         int orderSize = order.getSize();
@@ -57,7 +56,6 @@ void UI::run() {
                             cout << "- " << orderedItems[i].name << " (" << orderedItems[i].price << "$)" << endl;
                         }
 
-                        // Додаємо замовлення до черги
                         OrderEntry entry;
                         entry.guestName = guest.getName();
                         entry.orderTime = time(0);
@@ -71,7 +69,6 @@ void UI::run() {
                                 cerr << "|<<<| Error adding order to queue for " << guest.getName() << endl;
                                 order.saveToFile(orderNumber++, clock);
                             } else {
-                                // Обробляємо замовлення в черзі
                                 if (!orderQueue.processOrders()) {
                                     cerr << "|<<<| Error processing orders." << endl;
                                 }
@@ -79,17 +76,16 @@ void UI::run() {
                             }
                         }
 
-                        // Запитуємо про повторне замовлення
                         string repeatChoiceStr;
                         cout << "\n|<<<| Do you want to place another order? (y/n): ";
                         getline(cin, repeatChoiceStr);
 
                         if (!repeatChoiceStr.empty() && (repeatChoiceStr[0] == 'y' || repeatChoiceStr[0] == 'Y')) {
-                            break; // Переходимо до наступного замовлення
+                            break;
                         } else {
                             cout << "|<<<| Thank you for your visit!" << endl;
                             this_thread::sleep_for(seconds(2));
-                            return; // Завершуємо роботу
+                            return; 
                         }
                     } else {
                         cout << "|<<<| Payment failed. Insufficient funds." << endl;
@@ -112,11 +108,11 @@ void UI::run() {
             getline(cin, repeatChoiceStr);
 
             if (!repeatChoiceStr.empty() && (repeatChoiceStr[0] == 'y' || repeatChoiceStr[0] == 'Y')) {
-                continue; // Повторюємо цикл для нового замовлення
+                continue; 
             } else {
                 cout << "|<<<| Thank you for your visit!" << endl;
                 this_thread::sleep_for(seconds(2));
-                return; // Завершуємо роботу
+                return; 
             }
         }
     }
